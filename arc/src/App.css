@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* PAGE */
+.page {
+  min-height: 100vh;
+  background-color: #f8f7ef;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.06) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    74px 100%,
+    100% 154px;
+}
+
+
+/* NAVBAR */
+.navbar {
+  height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 9%;
+  background-color: #f8f7ef;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* LOGO */
+.logo {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* NAVIGATION */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 9px;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+/* THEME BUTTON */
+.theme {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  background-color: #050505;
+  color: white;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+/* CONTAINER */
+.container {
+  width: 82%;
+  max-width: 1050px;
+  margin: 43px auto 0;
+}
+
+/* HERO */
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 27px;
+}
+
+/* HEADING */
+.hero-top h1 {
+  font-size: 32px;
+  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -1.7px;
+  color: #080808;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 30px;
+}
+
+/* GET STARTED */
+.get-started {
+  height: 27px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #050505;
+  color: white;
+  font-size: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.get-started:hover {
+  opacity: 0.8;
+}
+
+/* ARROW */
+.arrow {
+  width: 27px;
+  height: 27px;
+  border: none;
+  border-radius: 50%;
+  background-color: #050505;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  transform: translateX(2px);
+}
+
+/* VIDEO BOX */
+.digital-banner {
+  width: 100%;
+  height: 282px;
+  overflow: hidden;
+  background-color: #020612;
+}
+
+.digital-banner video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
