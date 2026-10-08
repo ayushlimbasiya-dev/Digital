@@ -312,7 +312,149 @@ nav a:hover {
   text-transform: uppercase;
 }
 
-/*  SERVICES */
+/* ============ EXPERIENCES ============ */
+.experience-section {
+  width: calc(100% - 60px);
+  margin: 80px auto 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f8f7ef;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* heading */
+.experience-header {
+  height: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.experience-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #050505;
+}
+
+.experience-dot {
+  width: 6px;
+  height: 6px;
+  background: #050505;
+}
+
+.experience-header h2 {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 600;
+  color: #050505;
+  letter-spacing: -3px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* body: stats + card */
+.experience-body {
+  display: grid;
+  grid-template-columns: 37.5% 62.5%;
+  min-height: 440px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* left: stats */
+.experience-stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 14px;
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.stat-box:last-child {
+  border-bottom: 0;
+}
+
+.stat-box h3 {
+  font-size: clamp(44px, 4.5vw, 60px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: #050505;
+}
+
+.stat-box span {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: #111;
+}
+
+/* right: dark grain card */
+.experience-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 40px 40px;
+  background:radial-gradient(circle at 85% 0%, #f2f2f2 0%, #9a9a9a 18%, #2a2a2a 45%, #070707 75%), #050505;
+  color: #fff;
+}
+
+/* grain / noise overlay */
+ .experience-card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+  }
+
+.card-logo,
+.experience-card p {
+  position: relative;
+  z-index: 1;
+}
+
+.card-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-logo-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.card-logo b {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+}
+
+.experience-card p {
+  max-width: 740px;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+/* ============ SERVICES ============ */
 .services-section {
   width: calc(100% - 60px);
   margin: 80px auto 0;
@@ -350,11 +492,12 @@ nav a:hover {
 .services-header h2 {
   font-size: clamp(40px, 5vw, 56px);
   font-weight: 600;
+  color: #020612;
   letter-spacing: -3px;
   line-height: 1;
 }
 
-/*  row (light) */
+/* row  */
 .service-row {
   display: grid;
   grid-template-columns: 37.5% 23.5% 39%;

@@ -8,7 +8,14 @@ const projects = [
   { img: "/project.png", title: "Lessons from Real-World Projects" },
 ];
 
-// Brand logos 
+// Experience stats
+const stats = [
+  { value: "98%", label: "Client satisfaction rate" },
+  { value: "87+", label: "Successful projects launched" },
+  { value: "50K+", label: "Monthly visitors" },
+];
+
+// Brand logos
 const logos = (
   <>
     <div className="brand">
@@ -104,6 +111,42 @@ function App() {
         </section>
       </main>
 
+      {/* EXPERIENCES */}
+      <section className="experience-section" id="about">
+        <div className="experience-header">
+          <div className="experience-label">
+            <span className="experience-dot"></span>
+            <span>WHO WE ARE</span>
+          </div>
+          <h2>EXPERIENCES.</h2>
+        </div>
+
+        <div className="experience-body">
+          {/* left: stats */}
+          <div className="experience-stats">
+            {stats.map((s) => (
+              <div className="stat-box" key={s.label}>
+                <h3>{s.value}</h3>
+                <span>{s.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* right: dark grain card */}
+          <div className="experience-card">
+            <div className="card-logo">
+              <span className="card-logo-icon"></span>
+              <b>DigitalArc</b>
+            </div>
+            <p>
+              A creative video production studio crafting cinematic visuals,
+              powerful storytelling, and high-impact content that brings
+              brands, products, and ideas to life.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section className="services-section" id="services">
         <div className="services-header">
@@ -168,18 +211,19 @@ function App() {
           </div>
         </div>
 
-        {/*04*/}
+        {/* 04 */}
         <div className="service-row">
           <div className="service-left">
-            <span className="service-no">(03)</span>
+            <span className="service-no">(04)</span>
             <h3>BRAND DESIGN</h3>
           </div>
           <div className="service-img-box">
-            <img src="/project.png" alt="Product Design" />
+            <img src="/project.png" alt="Brand Design" />
           </div>
           <div className="service-right">
             <p>
-              Strategic brand identity design including logo systems, typography, color palettes, and visual storytelling.
+              Strategic brand identity design including logo systems,
+              typography, color palettes, and visual storytelling.
             </p>
             <button className="service-btn">→</button>
           </div>
@@ -189,5 +233,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
