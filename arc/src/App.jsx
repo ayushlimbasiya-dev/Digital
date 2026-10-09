@@ -3,10 +3,10 @@ import "./App.css";
 
 // 4 projects ki list
 const projects = [
-  { img: "/futu.png", title: "Designing the Future" },
-  { img: "/digi.png", title: "Digital Vision & Structure" },
-  { img: "/less.png", title: "Building Smarter Digital Products" },
-  { img: "/project.png", title: "Lessons from Real-World Projects" },
+  { img: "/futu.png", title: "Designing the Future", r: 1.146 },
+  { img: "/digi.png", title: "Digital Vision & Structure", r: 0.991 },
+  { img: "/less.png", title: "Building Smarter Digital Products", r: 1.193 },
+  { img: "/project.png", title: "Lessons from Real-World Projects", r: 0.839 },
 ];
 
 // Experience stats
@@ -15,7 +15,15 @@ const stats = [
   { value: "87+", label: "Successful projects launched" },
   { value: "50K+", label: "Monthly visitors" },
 ];
-
+// FAQ
+const faqs = [
+  { q: "What services do you offer?", a: "We provide branding, UI/UX design, web development, product design, and digital experiences tailored to your business." },
+  { q: "How long does a typical project take?", a: "Most projects take between 2–6 weeks depending on scope, complexity, and feedback cycles." },
+  { q: "What industries do you work with?", a: "We work with startups, e-commerce brands, tech companies, real estate, healthcare, creators, and corporate clients. If you have a business, we can design for it." },
+  { q: "Do you offer custom designs or use templates?", a: "Every project is custom-designed. We don’t use pre-made templates — everything is built to match your brand." },
+  { q: "How much do your services cost?", a: "Pricing depends on the scope and requirements. Contact us for a custom quote." },
+  { q: "Can I request revisions?", a: "Yes, revisions are included to ensure the final result meets your expectations." },
+];
 // Testimonials
 const testimonials = [
   {
@@ -100,6 +108,8 @@ const logos = (
 
 function App() {
   const [active, setActive] = useState(0);
+  // faq accordion
+  const [openFaq, setOpenFaq] = useState(null);
   const t = testimonials[active];
   const last = testimonials.length - 1;
   const prev = () => setActive(active - 1);
@@ -167,15 +177,18 @@ function App() {
         </section>
 
         <section className="image-four">
-          {projects.map((p) => (
-            <div className="image-one" key={p.title}>
-              <img className="img" src={p.img} alt={p.title} />
-              <div className="project-info">
-                <h3>{p.title}</h3>
-              </div>
-            </div>
-          ))}
-        </section>
+  {projects.map((p) => (
+    <div className="image-one" key={p.title}>
+      <div className="project-media" style={{ "--r": p.r }}>
+        <img className="img" src={p.img} alt={p.title} />
+        <span className="project-pill">SEE PROJECT</span>
+      </div>
+      <div className="project-info">
+        <h3>{p.title}</h3>
+      </div>
+    </div>
+  ))}
+</section>
       </main>
 
       {/* EXPERIENCES */}
@@ -230,8 +243,8 @@ function App() {
             <span className="service-no">(01)</span>
             <h3>App Design</h3>
           </div>
-          <div className="service-img-box">
-            <img src="/less.png" alt="App Design" />
+          <div className="service-img-box" onClick={(e) => e.currentTarget.classList.toggle("full")}>
+            <img src="/about.png" alt="App Design" />
           </div>
           <div className="service-right">
             <p>
@@ -248,8 +261,8 @@ function App() {
             <span className="service-no">(02)</span>
             <h3>Web Design</h3>
           </div>
-          <div className="service-img-box">
-            <img src="/futu.png" alt="Web Design" />
+          <div className="service-img-box" onClick={(e) => e.currentTarget.classList.toggle("full")}>
+            <img src="/arc.png" alt="Web Design" />
           </div>
           <div className="service-right">
             <p>
@@ -266,8 +279,8 @@ function App() {
             <span className="service-no">(03)</span>
             <h3>Product Design</h3>
           </div>
-          <div className="service-img-box">
-            <img src="/project.png" alt="Product Design" />
+          <div className="service-img-box" onClick={(e) => e.currentTarget.classList.toggle("full")}>
+            <img src="/arr.png" alt="Product Design" />
           </div>
           <div className="service-right">
             <p>
@@ -284,7 +297,7 @@ function App() {
             <span className="service-no">(04)</span>
             <h3>BRAND DESIGN</h3>
           </div>
-          <div className="service-img-box">
+          <div className="service-img-box" onClick={(e) => e.currentTarget.classList.toggle("full")}>
             <img src="/project.png" alt="Brand Design" />
           </div>
           <div className="service-right">
@@ -368,7 +381,7 @@ function App() {
 
         {/* right: image */}
         <div className="image-fu">
-          <img src="/futu.png" alt="image show" />
+          <img src="/arc.png" alt="image show" />
         </div>
       </section>
 
@@ -467,6 +480,71 @@ function App() {
           ))}
         </div>
       </section>
+      {/* FAQ */}
+      <section className="faq-section" id="faq">
+        <div className="faq-header">
+          <div className="faq-label">
+            <span className="faq-dot"></span>
+            <span>KNOW US BETTER</span>
+          </div>
+          <h2>FAQ.</h2>
+        </div>
+
+        <div className="faq-body">
+          <div className="faq-img">
+            <img src="/less.png" alt="faq" />
+          </div>
+
+          <div className="faq-list">
+            {faqs.map((f, i) => (
+              <div
+                className={`faq-item ${openFaq === i ? "open" : ""}`}
+                key={f.q}
+              >
+                <button
+                  className="faq-q"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                >
+                  <span>{f.q}</span>
+                  <span className="faq-icon">{openFaq === i ? "-" : "+"}</span>
+                </button>
+                <div className="faq-a">
+                  <p>{f.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* CTA */}
+      <section className="cta-section">
+        <h2>
+          A CREATIVE VIDEO
+          <br />
+          PRODUCTION
+          <img className="cta-img" src="/less.png" alt="video" />
+          STUDIO
+        </h2>
+        <div className="cta-buttons">
+          <button className="cta-btn">GET STARTED</button>
+          <button className="cta-arrow">→</button>
+        </div>
+      </section>
+      {/* FOOTER */}
+      <footer className="footer">
+        <div className="footer-top">
+          <div className="footer-logo">✸DigitalArc</div>
+          <div className="footer-links">
+            <a href="#home" className="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#project">Project</a>
+            <a href="#about">About</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <p className="footer-credit">Designed by WrapPixel</p>
+      </footer>
     </div>
   );
 }

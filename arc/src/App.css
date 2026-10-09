@@ -6,10 +6,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: Geist,"Geist fallback";
   background: #f8f7ef;
+  width: 100%;
   color: #050505;
 }
 
@@ -26,11 +26,11 @@ textarea {
 
 /* ============ NAVBAR ============ */
 .navbar {
-  height: 49px;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 9%;
+  padding: 0 30px;
   background: #f8f7ef;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -74,8 +74,8 @@ nav a:hover {
 
 /* ============ CONTAINER ============ */
 .container {
-  width: 82%;
-  max-width: 1050px;
+  width: calc(100% - 60px);
+  max-width: none;
   margin: 30px auto 0;
 }
 
@@ -147,7 +147,7 @@ nav a:hover {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: cover; 
 }
 
 /* ============ BRAND LOGOS ============ */
@@ -252,11 +252,14 @@ nav a:hover {
 
 /* ============ PROJECTS ============ */
 .projects-section {
-  min-height: 180px;
+  min-height: 175px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 60px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: #f8f7ef;
 }
@@ -292,58 +295,98 @@ nav a:hover {
 
 /* project images */
 .image-four {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  align-items: flex-start;         
+  padding-bottom: 40px;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .image-one {
+  flex: 1 1 0;
+  min-width: 0;
+  container-type: inline-size;     
+  cursor: pointer;
+  transition: flex-grow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-one:hover {
+  flex-grow: 1.1;                  
+}
+
+/* image + pill  */
+.project-media {
   position: relative;
   overflow: hidden;
+  height: calc(100cqw * var(--r));
 }
 
 .img {
   width: 100%;
-  height: 400px;
-  display: block;
+  height: 100%;                    
   object-fit: cover;
-  transition: transform 0.6s ease;
+  display: block;
+  transition: filter 0.4s ease, transform 0.5s ease;
 }
 
 .image-one:hover .img {
-  transform: scale(1.04);
+  filter: blur(12px);
+  transform: scale(1.06);           
+}
+
+/* SEE PROJECT pill */
+.project-pill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: #f8f7ef;
+  color: #000;
+  font-family: Geist, "Geist fallback";
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.image-one:hover .project-pill {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .project-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 14px;
-  margin-top: 1px;
-  color: #000;
-}
-.project-info h3 {
-  margin: 0;
-  font-family: "Geist mono","Geist mono fallback";
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.3;
-  color: var(--card-foreground);
-  text-transform: lowercase;
+  padding: 8px 8px 0;
 }
 
+.project-info h3 {
+  margin: 0;
+  font-family: "Geist mono", "Geist mono fallback";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: left;
+  color: #000;
+}
 /* ============ EXPERIENCES ============ */
 .experience-section {
   width: calc(100% - 60px);
   margin: 0px auto 0;
   border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   border-right: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: #f8f7ef;
+  margin-top: 40px;
   font-family: Geist,"Geist fallback";
 }
 
 /* heading */
 .experience-header {
-  height: 180px;
+  height: 175px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -481,16 +524,18 @@ nav a:hover {
 /* ============ SERVICES ============ */
 .services-section {
   width: calc(100% - 60px);
-  margin: 80px auto 0;
+  margin: 40px auto 0;
   border-left: 1px solid rgba(0, 0, 0, 0.08);
   border-right: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: #f8f7ef;
   font-family: Geist,"Geist fallback";
 }
 
 /* heading */
 .services-header {
-  height: 180px;
+  height: 175px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -566,9 +611,10 @@ nav a:hover {
 .service-img-box {
   padding: 21px;
   overflow: hidden;
+  cursor: pointer;
   border-left: 1px solid rgba(0, 0, 0, 0.08);
   border-right: 1px solid rgba(0, 0, 0, 0.08);
-  transition: border-color 0.4s ease;
+  transition: padding 0.4s ease, border-color 0.4s ease;
 }
 
 .service-img-box img {
@@ -576,9 +622,18 @@ nav a:hover {
   height: 100%;
   display: block;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
-.service-img-box img:hover{
-  transform: translate(-8px);
+
+.service-img-box img:hover {
+  transform: translateY(-12px);
+}
+.service-img-box.full {
+  padding: 0;
+}
+
+.service-img-box.full img:hover {
+  transform: none;                
 }
 
 /* right: text + button */
@@ -635,15 +690,17 @@ nav a:hover {
 /* ============ FEATURES ============ */
 .features-section {
   width: calc(100% - 60px);
-  margin: 80px auto 0;
+  margin: 40px auto 0;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: #070707;
   color: #fff;
   font-family: Geist,"Geist fallback";
 }
 .features-header {
-  height: 180px;
+  height: 175px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -750,7 +807,10 @@ nav a:hover {
   display: grid;
   grid-template-columns: 60.0% 40.0%;
   min-height: 440px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: #f8f7ef;
 }
 
@@ -808,7 +868,7 @@ nav a:hover {
 }
 
 .t-header {
-  height: 180px;
+  height: 175px;
   display: flex;
   font-family: Geist,"Geist fallback";
   justify-content: space-between;
@@ -843,13 +903,13 @@ nav a:hover {
 .t-logos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 20px 0;
+  margin: 15px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .t-logo {
-  height: 61px;
+  height: 51px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -860,6 +920,14 @@ nav a:hover {
   font-weight: 600;
   letter-spacing: -0.8px;
   user-select: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.t-logos:hover .t-logo {
+  color: #6b6b6b;
+}
+.t-logos:hover .t-logo:hover {
+  color: #fff;
 }
 
 .t-logo:first-child {
@@ -936,15 +1004,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   padding: 40px;
-  background:
-    repeating-linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.05) 0,
-      rgba(255, 255, 255, 0.05) 1px,
-      transparent 1px,
-      transparent 6px
-    ),
-    #0a0a0a;
+  background:repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0, rgba(255, 255, 255, 0.05) 1px,transparent 1px,transparent 6px), #0a0a0a;
 }
 
 .t-right img {
@@ -957,7 +1017,7 @@ nav a:hover {
 
 /* ============ DARK WRAPPER  ============ */
 .dark-wrap {
-  margin-top: 80px;
+  margin-top: 40px;
   padding-bottom: 0;            
   background: #050505;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -991,7 +1051,7 @@ nav a:hover {
 }
 
 .b-header {
-  height: 180px;
+  height: 175px;
   font-size: 50px;
   display: flex;
   justify-content: space-between;
@@ -1024,7 +1084,7 @@ nav a:hover {
 /* slider */
 .b-slider {
   overflow: hidden;
-  margin-top: 20px;
+  margin-top: 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1114,16 +1174,19 @@ nav a:hover {
 /* ============ TEAM ============ */
 .team-section {
   width: calc(100% - 60px);
-  margin: 0 auto;    
+  margin: 0 auto; 
+  margin-top: 40px;   
   padding-bottom: 40px;
   border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   border-right: 1px solid rgba(0, 0, 0, 0.08);
   background: #f8f7ef;
   font-family: Geist,"Geist fallback";
 }
 
 .team-header {
-  height: 180px;
+  height: 175px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1159,7 +1222,7 @@ nav a:hover {
 .team-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-top: 20px;
+  margin-top: 15px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -1183,11 +1246,14 @@ nav a:hover {
   display: block;
   object-fit: cover;
   filter: grayscale(1);
-  transition: transform 0.6s ease;
+  transition: transform 0.12s ease;
+}
+.team-img img:hover{
+  transform: translate(-8);
 }
 .duration-500 {
-  --tw-duration: .5s;
-  transition-duration: .5s;
+  --tw-duration: .9s;
+  transition-duration: .9s;
 }
 .transition-all {
     transition-property: all;
@@ -1231,4 +1297,255 @@ nav a:hover {
   font-family: "Geist mono","Geist mono fallback";
   font-size: 14px;
   color: #555;
+}
+
+/* ============ FAQ ============ */
+.faq-section {
+  width: calc(100% - 60px);
+  margin-top: 10px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f8f7ef;
+  font-family: Geist,"Geist fallback";
+}
+
+.faq-header {
+  height: 175px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.faq-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Geist mono","Geist mono fallback";
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #050505;
+}
+
+.faq-dot {
+  width: 6px;
+  height: 6px;
+  background: #050505;
+}
+
+.faq-header h2 {
+  font-family: Geist,"Geist fallback";
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: -3px;
+  line-height: 1;
+  color: #050505;
+}
+
+/* left image  */
+.faq-body {
+  display: grid;
+  grid-template-columns: 43% 57%;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.faq-img {
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.faq-img img {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.faq-item:last-child {
+  border-bottom: 0;
+}
+
+.faq-q {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border: 0;
+  background: transparent;
+  color: #050505;
+  font-family: Geist,"Geist fallback";
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.faq-icon {
+  font-family: "Geist mono","Geist mono fallback";
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+.faq-a p {
+  text-align: left;
+  overflow: hidden;
+  padding: 0 30px;
+  font-family: Geist,"Geist fallback";
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+  transition: padding 0.4s ease;
+}
+
+.faq-item.open .faq-a {
+  grid-template-rows: 1fr;
+}
+
+.faq-item.open .faq-a p {
+  padding-bottom: 28px;
+}
+/* ============ CTA ============ */
+.cta-section {
+  width: calc(100% - 60px);
+  height: 407px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #f8f7ef;
+  font-family: Geist,"Geist fallback";
+}
+
+.cta-section h2 {
+  font-family: Geist,"Geist fallback";
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #050505;
+}
+/* images */
+.cta-img {
+  width: 70px;
+  height: 48px;
+  margin: 0 14px;
+  border-radius: 10px;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 36px;
+}
+
+.cta-btn {
+  height: 46px;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 999px;
+  background: #050505;
+  color: #fff;
+  font-family: Geist,"Geist fallback";
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cta-arrow {
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: #050505;
+  color: #fff;
+  font-family: Geist,"Geist fallback";
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cta-btn:hover,
+.cta-arrow:hover {
+  opacity: 0.8;
+}
+/* ============ FOOTER ============ */
+.footer {
+  width: calc(100% - 60px);
+  border-left:1px solid rgba(0, 0, 0, 0.08) ;
+  border-right:1px solid rgba(0, 0, 0, 0.08) ;
+  border-top:1px solid rgba(0, 0, 0, 0.08) ;
+  border-bottom:1px solid rgba(0, 0, 0, 0.08) ;
+  margin: 40px auto 0;
+  font-family: Geist, "Geist fallback";
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.footer-logo {
+  font-family: Geist, "Geist fallback";
+  font-size: 21px;
+  font-weight: 700;
+  margin-top: 10px;
+  letter-spacing: -0.8px;
+  color: #050505;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-right: 0;
+}
+
+.footer-links a {
+  font-family: "Geist mono", "Geist mono fallback";
+  font-size: 15px;
+  text-decoration: none;
+  color: #6b6b6b;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-links a.active {
+  color: #050505;
+}
+
+.footer-credit {
+  font-family: "Geist mono", "Geist mono fallback";
+  font-size: 16px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  text-align: left;
+  color: #6b6b6b;
 }
